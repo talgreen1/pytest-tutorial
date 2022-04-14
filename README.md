@@ -17,6 +17,9 @@ pytest -m "body or engine"
 pytest -m "not entertainment"
  ```
 
+Do not capture prints:
+```pytest -s```
+
 ###Pytest CLI commands
 https://docs.pytest.org/en/6.2.x/usage.html
 
