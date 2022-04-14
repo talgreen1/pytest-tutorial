@@ -1,3 +1,5 @@
+import time
+
 from pytest import mark
 
 
@@ -7,6 +9,7 @@ class BodyTests:
     @mark.ui
     def test_can_navigate_to_body_page(self, chrome_browser):
         chrome_browser.get("http://www.motortrend.com/")
+        time.sleep(4)
         assert True
 
     def test_bumper(self):
