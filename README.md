@@ -11,7 +11,11 @@ Run tests in parallel:
 
 ##Custom Markers
 Run custom marker:  
-```pytest -m smoke ```
+```
+pytest -m smoke
+pytest -m "body or engine"
+pytest -m "not entertainment"
+ ```
 
 ###Pytest CLI commands
 https://docs.pytest.org/en/6.2.x/usage.html
