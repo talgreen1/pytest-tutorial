@@ -1,12 +1,14 @@
 from pytest import fixture
 
-from selenium import webdriver
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--env",
+        action="store",
+        help="Environment to run tests against"
+    )
 
 
-@fixture(scope="session")
-def chrome_browser():
-    browser = webdriver.Chrome("./chromedriver")
-    yield browser
-
-    #     teardown
-    print("I'm tearing down this browser")
+@fixture(scope='session')
+def env(request):
+    return request.config.getoption("--env")
