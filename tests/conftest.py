@@ -1,23 +1,15 @@
 from pytest import fixture
+from selenium import webdriver
 
-from config import Config
+import json
 
+def load_test_data(path):
+    with open(path) as data_file:
+        json.load()
 
-def pytest_addoption(parser):
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> in addoption")
-    parser.addoption(
-        "--env",
-        action="store",
-        help="Environment to run tests against"
-    )
-
-
-@fixture(scope='session')
-def env(request):
-    return request.config.getoption("--env")
-
-
-@fixture(scope="session")
-def app_config(env):
-    cfg = Config(env)
-    return cfg
+# @fixture(params=[webdriver.Chrome, webdriver.Firefox()])
+# def browser(request):
+#     driver = request.param
+#     drvr = driver()
+#     yield drvr
+#     drvr.quit()
