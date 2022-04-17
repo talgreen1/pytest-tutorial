@@ -1,6 +1,6 @@
-def test_envrirontment_is_qa(env):
+def test_env_is_qa(env):
     assert env == 'qa'
 
 
-def test_envrirontment_is_dev(env):
+def test_env_is_dev(env):
     assert env == 'dev'
