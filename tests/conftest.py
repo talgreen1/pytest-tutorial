@@ -3,9 +3,17 @@ from selenium import webdriver
 
 import json
 
+
+data_path = 'test_data.json'
 def load_test_data(path):
     with open(path) as data_file:
-        json.load()
+        data = json.load(data_file)
+        return data
+
+@fixture(params = load_test_data(data_path))
+def test_data(request):
+    data = request.param
+    return data
 
 # @fixture(params=[webdriver.Chrome, webdriver.Firefox()])
 # def browser(request):
