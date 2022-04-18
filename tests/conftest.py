@@ -39,8 +39,19 @@ def setup03():
     yield f
     os.remove(filename)
 
+
 @pytest.fixture()
 def setup04(request):
-    print ("\n In Setup04\n")
-    print ('\n Fixture score: ' + request.scope)
-    print ('\n Calling function: ' + request.function.__name__)
+    print("\n In Setup04\n")
+    print('\n Fixture score: ' + request.scope)
+    print('\n Calling function: ' + request.function.__name__)
+
+
+@pytest.fixture()
+def setup05():
+    def get_structure(name):
+        if name == 'list':
+            return [1, 2, 3]
+        elif name == 'tuple':
+            return (1, 2, 3)
+    return get_structure

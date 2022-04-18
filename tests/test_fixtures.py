@@ -12,3 +12,8 @@ def test_del_item(setup01):
 
 def test_request(setup04):
     assert 1 == 1
+
+
+def test_factory_fixture(setup05):
+    assert type(setup05('list')) == list
+    assert type(setup05('tuple')) == tuple
