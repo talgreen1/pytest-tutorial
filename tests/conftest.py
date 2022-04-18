@@ -38,3 +38,9 @@ def setup03():
     f = open(filename, 'r+')
     yield f
     os.remove(filename)
+
+@pytest.fixture()
+def setup04(request):
+    print ("\n In Setup04\n")
+    print ('\n Fixture score: ' + request.scope)
+    print ('\n Calling function: ' + request.function.__name__)
