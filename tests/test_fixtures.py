@@ -1,7 +1,9 @@
 import pytest
+import os
 
 weekdays1 = ['mon', 'tue', 'wed']
 weekdays2 = ['fri', 'sat', 'sun']
+filename = "file.txt"
 
 
 @pytest.fixture
@@ -22,10 +24,24 @@ def setup02():
     weekdays1.pop()
 
 
-# def test_extend_list(setup01):
-#     setup01.extend(weekdays2)
-#     assert setup01 == ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
+@pytest.fixture
+def setup03():
+    f = open(filename, 'w')
+    f.write("Hello world!")
+    f.close()
+    f = open(filename, 'r+')
+    yield f
+    os.remove(filename)
+
+
+def test_extend_list(setup01):
+    setup01.extend(weekdays2)
+    assert setup01 == ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
 
 
 def test_len(setup01, setup02):
     assert len(weekdays1 + setup02) == len(setup01 + weekdays2)
+
+
+def test_testfile(setup03):
+    assert setup03.readline() == "Hello world!"
