@@ -4,6 +4,6 @@ from sushi import *
 
 rest = Restaurant("Segev", "Rishon", "Menu")
 
-sushi = Sushi("Inside out", ["egg", "Crab"])
-print(str(sushi.is_vegetarian()))
+sushi = Sushi("Inside out", ["egg", "Cdrab"])
+print(str(sushi.is_vegetarian))
 
