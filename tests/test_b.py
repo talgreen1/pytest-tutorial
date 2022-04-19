@@ -1,7 +1,7 @@
 import time
 
 
-# run tests in parallel: pytest -n4
+# run tests in parallel: pytest -n4 --dist loadscope
 def test_1():
     time.sleep(5)
     print('\n>>> Module B - Test 1\n')
