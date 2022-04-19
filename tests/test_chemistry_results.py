@@ -1,6 +1,6 @@
 import time
 
-
+# run tests in parallel: pytest -n4
 def test_result_1_completes_as_expected():
     time.sleep(5)
     print('Result 1 has completed')
