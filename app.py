@@ -1,4 +1,4 @@
-from sushi import *
+from tests.sushi import *
 
 # https://hackebrot.github.io/pytest-tricks/mark_parametrize_with_indirect/
 
