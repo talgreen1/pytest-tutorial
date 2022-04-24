@@ -1,5 +1,5 @@
 class User:
-    def __init__(self, email, name, password, current_job_title):
+    def __init__(self, name, email, password, current_job_title):
         self.email = email
         self.name = name
         self.password = password
@@ -10,3 +10,10 @@ class User:
 
     def change_job_title(self, new_job_title):
         self.current_job_title = new_job_title
+
+    def get_user_info(self):
+        print(f'User {self.name}, works as {self.current_job_title}, email: {self.email}')
+
+
+user1 = User('talg', 'talgreen1@yahoo.com', '1234', 'qa automation')
+user1.get_user_info()
