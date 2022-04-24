@@ -14,6 +14,7 @@ class User:
     def get_user_info(self):
         print(f'User {self.name}, works as {self.current_job_title}, email: {self.email}')
 
+    @staticmethod
+    def say_hello():
+        print('Hello')
 
-user1 = User('talg', 'talgreen1@yahoo.com', '1234', 'qa automation')
-user1.get_user_info()
