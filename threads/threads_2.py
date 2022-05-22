@@ -1,4 +1,4 @@
-import concurrent.futures
+import threading
 import time
 
 start = time.perf_counter()
@@ -9,13 +9,15 @@ def do_something(seconds):
     time.sleep(seconds)
     return f'Done Sleeping...{seconds}'
 
-with concurrent.futures.ThreadPoolExecutor() as exeutor:
-    f1 = exeutor.submit(do_something, 5)
-    f2 = exeutor.submit(do_something, 5)
-    print (f1.result())
-    print (f2.result())
+threads = []
 
+for _ in range(10):
+    t = threading.Thread(target=do_something, args=(6,))
+    t.start()
+    threads.append(t)
 
+for t in threads:
+    t.join()
 
 finish = time.perf_counter()
 
